@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class CarBreakingEvent extends CarEvent implements Serializable {
 
-    public List<String> getBreakageCodeList() {
+    /*public List<String> getBreakageCodeList() {
         return breakageCodeList;
     }
 
@@ -17,15 +17,27 @@ public class CarBreakingEvent extends CarEvent implements Serializable {
         this.breakageCodeList = breakageCodeList;
     }
 
-    private List<String> breakageCodeList = new ArrayList<>();
+    private List<String> breakageCodeList = new ArrayList<>();*/
+    
+    private String breakageCode;
+    
+    public String getBreakageCode() {
+        return breakageCode;
+    }
+
+    public void setBreakageCode(String breakageCode) {
+        this.breakageCode = breakageCode;
+    }
     
     @Override
     public String toString() {
         String eventString = "CarBreakingEvent{" + super.toString();
         
-        for(String breakage: breakageCodeList) {
+        /*for(String breakage: breakageCodeList) {
             eventString += ", '" + breakage + "'";
-        }
+        }*/
+        
+        eventString += ", breakageCode='" + breakageCode + "'";
         
         eventString += '}';
         

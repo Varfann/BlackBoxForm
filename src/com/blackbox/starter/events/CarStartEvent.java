@@ -9,12 +9,14 @@ public class CarStartEvent extends CarEvent implements Serializable {
 
     private String driverId;
     private String tripId;
+    private long mileage;
 
     @Override
     public String toString() {
         return "CarStartEvent{" + super.toString() +
                 ", driverId='" + driverId + '\'' +
                 ", tripId='" + tripId + '\'' +
+                ", mileage=" + mileage +
                 '}';
     }
 
@@ -32,5 +34,13 @@ public class CarStartEvent extends CarEvent implements Serializable {
 
     public void setTripId(String tripId) {
         this.tripId = tripId;
+    }
+    
+    public long getMileage() {
+        return mileage;
+    }
+    
+    public void setMileage(long mileage) {
+        this.mileage = mileage;
     }
 }
