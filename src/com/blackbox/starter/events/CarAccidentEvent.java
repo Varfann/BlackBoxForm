@@ -19,14 +19,34 @@ public class CarAccidentEvent extends CarEvent implements Serializable {
 
     private List<String> breakageCodeList = new ArrayList<>();*/
     
-    private String breakageCode;
+    private List<String> checkedSensors;
     
-    public String getBreakageCode() {
-        return breakageCode;
+    private List<String> possiblyDamaged;
+    
+    private List<String> workedAirbags;
+    
+    public List<String> getCheckedSensorsList() {
+        return checkedSensors;
     }
 
-    public void setBreakageCode(String breakageCode) {
-        this.breakageCode = breakageCode;
+    public void setCheckedSensorsList(List<String> checkedSensors) {
+        this.checkedSensors = checkedSensors;
+    }
+    
+    public List<String> getPossiblyDamagedList() {
+        return possiblyDamaged;
+    }
+
+    public void setPossiblyDamagedList(List<String> possiblyDamaged) {
+        this.possiblyDamaged = possiblyDamaged;
+    }
+    
+    public List<String> getWorkedAirbagsList() {
+        return workedAirbags;
+    }
+
+    public void setWorkedAirbagsList(List<String> workedAirbags) {
+        this.workedAirbags = workedAirbags;
     }
     
     @Override
@@ -35,9 +55,19 @@ public class CarAccidentEvent extends CarEvent implements Serializable {
         
         /*for(String breakage: breakageCodeList) {
             eventString += ", '" + breakage + "'";
-        }*/
+        }*/      
         
-        eventString += ", breakageCode='" + breakageCode + "'";
+        for(String sensor: checkedSensors) {
+            eventString += ", '" + sensor + "'";
+        }
+        
+        for(String breakage: possiblyDamaged) {
+            eventString += ", '" + breakage + "'";
+        }
+        
+        for(String airbag: workedAirbags) {
+            eventString += ", '" + airbag + "'";
+        }
         
         eventString += '}';
         
