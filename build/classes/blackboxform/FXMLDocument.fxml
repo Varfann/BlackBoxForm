@@ -7,13 +7,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="468.0" prefWidth="811.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="blackboxform.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="468.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blackboxform.FXMLDocumentController">
     <children>
-      <ListView layoutX="26.0" layoutY="126.0" prefHeight="328.0" prefWidth="762.0" />
+      <ListView fx:id="listViewMain" layoutX="26.0" layoutY="126.0" prefHeight="328.0" prefWidth="762.0" />
       <ToolBar layoutX="27.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="49.0" prefWidth="221.0">
          <items>
             <Label text="From" />
-            <DatePicker />
+            <TextField fx:id="fromValueField" prefHeight="25.0" prefWidth="176.0" />
          </items>
       </ToolBar>
       <ToolBar layoutX="26.0" layoutY="74.0" prefHeight="40.0" prefWidth="431.0">
@@ -21,7 +21,7 @@
           <Button fx:id="showButton" mnemonicParsing="false" onAction="#showButtonAction" onMouseClicked="#showButtonAction" text="Show" />
             <Button fx:id="checkValidationButton" mnemonicParsing="false" onAction="#checkValidationButtonAction" onMouseClicked="#checkValidationButtonAction" text="Check validation" />
             <Button fx:id="fileSelectorButton" mnemonicParsing="false" onAction="#fileSelectorButtonAction" onMouseClicked="#fileSelectorButtonAction" text="Select public key" />
-            <CheckBox mnemonicParsing="false" text="Show all events">
+            <CheckBox fx:id="showAllCheckBox" mnemonicParsing="false" text="Show all events">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -31,7 +31,7 @@
       <ToolBar layoutX="248.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="49.0" prefWidth="208.0">
          <items>
             <Label text="To" />
-            <DatePicker />
+            <TextField fx:id="toValueField" prefHeight="25.0" prefWidth="176.0" />
          </items>
       </ToolBar>
       <ToolBar layoutX="468.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="100.0" prefWidth="45.0">
