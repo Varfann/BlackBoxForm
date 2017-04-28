@@ -20,7 +20,7 @@
         <items>
           <Button fx:id="showButton" mnemonicParsing="false" onAction="#showButtonAction" onMouseClicked="#showButtonAction" text="Show" />
             <Button fx:id="checkValidationButton" mnemonicParsing="false" onAction="#checkValidationButtonAction" onMouseClicked="#checkValidationButtonAction" text="Check validation" />
-            <Button fx:id="fileSelectorButton" mnemonicParsing="false" onAction="#fileSelectorButtonAction" onMouseClicked="#fileSelectorButtonAction" text="Select public key" />
+            <!--<Button fx:id="fileSelectorButton" mnemonicParsing="false" onAction="#fileSelectorButtonAction" onMouseClicked="#fileSelectorButtonAction" text="Select public key" />-->
             <CheckBox fx:id="showAllCheckBox" mnemonicParsing="false" text="Show all events">
                <opaqueInsets>
                   <Insets />
