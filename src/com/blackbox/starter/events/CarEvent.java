@@ -9,7 +9,7 @@ public abstract class CarEvent implements Serializable, ICarEvent {
 
     protected long timestamp;
     protected String eventId;
-    protected long mileage;
+    //protected long mileage;
 
 
     @Override
@@ -20,7 +20,7 @@ public abstract class CarEvent implements Serializable, ICarEvent {
 
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return  "timestamp=" + timestamp +
                 ", eventId='" + eventId + '\'' +
@@ -29,6 +29,11 @@ public abstract class CarEvent implements Serializable, ICarEvent {
 
     public long getMileage() {
         return mileage;
+    }*/
+    
+        public String toString() {
+        return  "timestamp=" + timestamp +
+                ", eventId='" + eventId + '\'';
     }
 
     public long getTimestamp() {
@@ -47,9 +52,9 @@ public abstract class CarEvent implements Serializable, ICarEvent {
         this.eventId = eventId;
     }
 
-    public void setMileage(long mileage) {
+    /*public void setMileage(long mileage) {
         this.mileage = mileage;
-    }
+    }*/
 
     public int compare(CarEvent event1, CarEvent event2) {
         return event1.getTimestamp()>event2.getTimestamp()?1:-1;

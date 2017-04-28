@@ -10,8 +10,6 @@ import java.security.GeneralSecurityException;
 import java.security.PrivateKey;
 import java.util.*;
 
-import static com.blackbox.starter.util.EncryptionUtil.PRIVATE_KEY_FILE;
-
 /**
  * Created by Kida on 28.03.2017.
  */
@@ -46,11 +44,46 @@ public class ChainDetecter {
         return res;
     }
 
-    public List<EventBlock> getListFromFile(int startPosition, int endPosition) throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream("history_storage\\history_" + startPosition
-                + "_" + endPosition + ".out");
-        ObjectInputStream oin = new ObjectInputStream(fis);
-        return (ArrayList<EventBlock>) oin.readObject();
+    public List<EventBlock> getListFromFile(int startPosition, int endPosition){
+        List<EventBlock> resultList = new ArrayList<>();
+        int start, end;
+        if (startPosition < 0 || endPosition < 0 || endPosition < startPosition) {
+           File folder = new File("history_storage\\");
+            String [] fileList =  folder.list(new FilenameFilter() {
+                @Override
+                public boolean accept(File dir, String name) {
+                    return name.startsWith("history_");
+                }
+            });
+            for (String fileName : fileList) {
+                resultList.addAll(getListFromFile("history_storage\\"+fileName));
+            }
+
+        } else {
+            start = (int) Math.floor((double) startPosition / 100.0) * 100;
+            end = (int) Math.ceil((double) startPosition / 100.0) * 100;
+            for (int i = start; i < end; i+=100) {
+                resultList.addAll(getListFromFile("history_storage\\history_" + start + "_" + (start+99) + ".out"));
+            }
+        }
+        return resultList;
+
+    }
+
+    private List<EventBlock> getListFromFile(String fileName) {
+        List<EventBlock> resultList = new ArrayList<>();
+        try {
+            FileInputStream fis = new FileInputStream(fileName);
+            ObjectInputStream oin = new ObjectInputStream(fis);
+            resultList.addAll((ArrayList<EventBlock>) oin.readObject());
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return resultList;
 
     }
 
@@ -64,6 +97,7 @@ public class ChainDetecter {
     }
 
     public List<CarEvent> getEventWithType(List<CarEvent> eventList, Set<Class> classList) {
+        if (classList.isEmpty()) return eventList;
         List<CarEvent> result = new ArrayList<>();
         for (CarEvent event : eventList) {
             if (classList.contains(event.getClass())) {

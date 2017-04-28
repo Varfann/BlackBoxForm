@@ -43,11 +43,11 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <CheckBox layoutX="14.0" layoutY="64.0" mnemonicParsing="false" text="Repaire" />
-                  <CheckBox layoutX="14.0" layoutY="35.0" mnemonicParsing="false" text="Stop" />
-                  <CheckBox layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Start" />
-                  <CheckBox layoutX="103.0" layoutY="5.0" mnemonicParsing="false" text="Accident" />
-                  <CheckBox layoutX="102.0" layoutY="35.0" mnemonicParsing="false" text="Breakage" />
+                  <CheckBox fx:id="repaireCheck" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" text="Repaire" />
+                  <CheckBox fx:id="stopCheck" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" text="Stop" />
+                  <CheckBox fx:id="startCheck" layoutX="14.0" layoutY="5.0" mnemonicParsing="false" text="Start" />
+                  <CheckBox fx:id="accidentCheck" layoutX="103.0" layoutY="5.0" mnemonicParsing="false" text="Accident" />
+                  <CheckBox fx:id="breakageCheck" layoutX="102.0" layoutY="35.0" mnemonicParsing="false" text="Breakage" />
                </children>
             </AnchorPane>
         </content>
